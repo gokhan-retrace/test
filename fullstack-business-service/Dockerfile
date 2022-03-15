@@ -1,4 +1,4 @@
-FROM node:16 as base
+FROM public.ecr.aws/bitnami/node:latest as base
 
 WORKDIR /usr/src/app
 
@@ -7,7 +7,7 @@ FROM base as dev
 CMD [ "node", "index.mjs" ]
 
 #stage for production
-FROM node:16-alpine as prod
+FROM public.ecr.aws/lambda/nodejs:latest as prod
 COPY --from=base /usr/src/app /
 COPY package*.json ./
 
