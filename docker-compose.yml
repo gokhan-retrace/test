@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  rabbitmq:
+    hostname: rabbitmq
+    build:
+      context: ./rabbitmq
+      dockerfile: Dockerfile
+    env_file:
+      - ./secret-stuff.env
+    networks:
+      - main
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "5672"]
+      interval: 5s
+      timeout: 15s
+      retries: 1
+  business-service:
+    hostname: business-service
+    image: <AWS-ECR-URI-SERVICE>
+    env_file:
+      - ./secret-stuff.env
+    networks:
+      - main
+    restart: always
+  sample-client:
+    hostname: sample-client
+    image: <AWS-ECR-URI-CLIENT>
+    env_file:
+      - ./secret-stuff.env
+    networks:
+      - main
+    restart: always
+networks:
+  main:

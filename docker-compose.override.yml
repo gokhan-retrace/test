@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  business-service:
+    build:
+      context: ./fullstack-business-service
+      dockerfile: Dockerfile
+      target: dev
+    image: business-service
+    volumes:
+      - ./fullstack-business-service:/usr/src/app
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+  sample-client:
+    build:
+      context: ./fullstack-sample-client
+      dockerfile: Dockerfile
+      target: dev
+    image: sample-client
+    volumes:
+      - ./fullstack-sample-client:/usr/src/app
+    ports:
+      - 3000:3000
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+networks:
+  main:
