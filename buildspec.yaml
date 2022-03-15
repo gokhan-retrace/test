@@ -16,7 +16,7 @@ phases:
       - echo Building the Docker image...
       - for r in $(grep 'image:' docker-compose.yml | sed -e 's/^.*\///');
           do
-            aws ecr create-repository --repository-name "$r"
+            aws ecr create-repository --repository-name "$r";
           done
       - docker-compose build
   post_build:
