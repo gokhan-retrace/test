@@ -21,17 +21,17 @@ services:
       interval: 5s
       timeout: 15s
       retries: 1
-  business-service:
-    hostname: business-service
-    image: 657793320642.dkr.ecr.eu-central-1.amazonaws.com/gg-test
+  test-business-service:
+    hostname: test-business-service
+    image: 657793320642.dkr.ecr.us-west-2.amazonaws.com/test-business-service
     env_file:
       - ./secret-stuff.env
     networks:
       - main
     restart: always
-  sample-client:
-    hostname: sample-client
-    image: <AWS-ECR-URI-CLIENT>
+  test-sample-client:
+    hostname: test-sample-client
+    image: 657793320642.dkr.ecr.us-west-2.amazonaws.com/test-sample-client
     env_file:
       - ./secret-stuff.env
     networks:
