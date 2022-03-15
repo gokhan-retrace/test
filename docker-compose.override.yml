@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  business-service:
+  test-business-service:
     build:
       context: ./fullstack-business-service
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
 #     depends_on:
 #       rabbitmq:
 #         condition: service_healthy
-  sample-client:
+  test-sample-client:
     build:
       context: ./fullstack-sample-client
       dockerfile: Dockerfile
