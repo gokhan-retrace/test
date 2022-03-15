@@ -15,7 +15,7 @@ phases:
       - echo Build GITHUB_TOKEN ${GITHUB_TOKEN}
       - echo Building the Docker image...
       - services=`grep 'image:' docker-compose.yml | sed -e 's/^.*\///'`
-      - for r in services;
+      - for r in $services;
           do
             echo "$REPOSITORY_URI/$r";
           done
