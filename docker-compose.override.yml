@@ -9,9 +9,9 @@ services:
     #image: business-service
     volumes:
       - ./fullstack-business-service:/usr/src/app
-    depends_on:
-      rabbitmq:
-        condition: service_healthy
+#     depends_on:
+#       rabbitmq:
+#         condition: service_healthy
   sample-client:
     build:
       context: ./fullstack-sample-client
@@ -22,8 +22,8 @@ services:
       - ./fullstack-sample-client:/usr/src/app
     ports:
       - 3000:3000
-    depends_on:
-      rabbitmq:
-        condition: service_healthy
+#     depends_on:
+#       rabbitmq:
+#         condition: service_healthy
 networks:
   main:
