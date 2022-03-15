@@ -14,7 +14,6 @@ phases:
       - echo Build started on `date`
       - echo Build GITHUB_TOKEN ${GITHUB_TOKEN}
       - echo Building the Docker image...
-      - npm set registry https://registry.npmjs.org/
       - docker-compose build
   post_build:
     commands:
