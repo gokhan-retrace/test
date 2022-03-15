@@ -17,7 +17,7 @@ phases:
       - services=`grep 'image:' docker-compose.yml | sed -e 's/^.*\///'`
       - for r in services;
           do
-            aws ecr create-repository --repository-name "$REPOSITORY_URI/$r";
+            echo "$REPOSITORY_URI/$r";
           done
       - docker-compose build
   post_build:
