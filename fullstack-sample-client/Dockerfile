@@ -15,7 +15,8 @@ COPY package*.json ./
 
 
 RUN echo registry=https://registry.npmjs.org/ >> ~/.npmrc
-RUN npm config set //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN} @retrace-org:registry=https://npm.pkg.github.com
+RUN npm config set //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+RUN npm config set @retrace-org:registry=https://npm.pkg.github.com
 RUN echo @retrace-org:registry=https://npm.pkg.github.com/ >> ~/.npmrc
 RUN echo //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN >> ~/.npmrc
 
