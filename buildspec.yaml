@@ -14,7 +14,10 @@ phases:
       - echo Build started on `date`
       - echo Build GITHUB_TOKEN ${GITHUB_TOKEN}
       - echo Building the Docker image...
-      - eval $(for r in $(grep 'image:' docker-compose.yml | sed -e 's/^.*\///'); do; aws ecr create-repository --repository-name "$r"; done)
+      - for r in $(grep 'image:' docker-compose.yml | sed -e 's/^.*\///');
+          do
+            aws ecr create-repository --repository-name "$r"
+          done
       - docker-compose build
   post_build:
     commands:
