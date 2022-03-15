@@ -23,6 +23,7 @@ services:
       retries: 1
   test-business-service:
     hostname: test-business-service
+    container_name: test-business-service
     image: 657793320642.dkr.ecr.us-west-2.amazonaws.com/test-business-service
     env_file:
       - ./secret-stuff.env
@@ -31,6 +32,7 @@ services:
     restart: always
   test-sample-client:
     hostname: test-sample-client
+    container_name: test-sample-client
     image: 657793320642.dkr.ecr.us-west-2.amazonaws.com/test-sample-client
     env_file:
       - ./secret-stuff.env
