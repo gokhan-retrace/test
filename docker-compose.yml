@@ -24,10 +24,6 @@ services:
   test-business-service:
     hostname: test-business-service
     container_name: test-business-service
-    build:
-      context: ./fullstack-business-service
-      dockerfile: Dockerfile
-      target: prod
     image: 657793320642.dkr.ecr.us-west-2.amazonaws.com/test-business-service
     env_file:
       - ./secret-stuff.env
