@@ -15,10 +15,10 @@ phases:
       - echo Build GITHUB_TOKEN ${GITHUB_TOKEN}
       - echo Building the Docker image...
       - services=`grep 'image:' docker-compose.yml | sed -e 's/^.*\///'`
-      - for r in $services;
-          do
-            aws ecr create-repository --repository-name "$REPOSITORY_URI/$r";
-          done
+      # - for service_name in $services;
+      #     do
+      #       aws ecr create-repository --repository-name "$REPOSITORY_URI/$service_name";
+      #     done
       - docker-compose build
   post_build:
     commands:
