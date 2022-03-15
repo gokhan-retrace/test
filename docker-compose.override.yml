@@ -6,7 +6,7 @@ services:
       context: ./fullstack-business-service
       dockerfile: Dockerfile
       target: dev
-    image: business-service
+    image: 657793320642.dkr.ecr.eu-central-1.amazonaws.com/gg-test
     volumes:
       - ./fullstack-business-service:/usr/src/app
 #     depends_on:
