@@ -19,7 +19,7 @@ phases:
       #     do
       #       aws ecr create-repository --repository-name "$REPOSITORY_URI/$service_name";
       #     done
-      - docker-compose build
+      - docker-compose build --build-arg github_token={GITHUB_TOKEN}
   post_build:
     commands:
       - echo Build completed on `date`
