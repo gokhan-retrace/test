@@ -23,7 +23,7 @@ services:
       retries: 1
   business-service:
     hostname: business-service
-    image: <AWS-ECR-URI-SERVICE>
+    image: 657793320642.dkr.ecr.eu-central-1.amazonaws.com/gg-test
     env_file:
       - ./secret-stuff.env
     networks:
