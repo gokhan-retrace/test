@@ -10,6 +10,7 @@ CMD [ "node", "index.mjs" ]
 #stage for production
 FROM public.ecr.aws/lambda/nodejs:latest as prod
 COPY --from=base /usr/src/app /
+RUN true
 COPY package*.json ./
 
 
