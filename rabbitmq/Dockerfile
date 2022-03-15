@@ -1,4 +1,4 @@
-FROM rabbitmq:3.9-management-alpine
+FROM public.ecr.aws/bitnami/rabbitmq:latest
 
 ADD init.sh /init.sh
 
